@@ -3,13 +3,14 @@
 
 #include <iostream>
 #include "hands.h"
-#include "cards.h"
+#include "game.h"
 
 void menu() {
     int menuOption;
-    std::cout << "1. View hand order 2. Calculate Hand 0. Exit" << std::endl ;
+    std::cout << "1. View hand order 2. Calculate Hand 3. Play Game 0. Exit" << std::endl ;
     std::cin >> menuOption;
     hands h;
+    game g;
     switch (menuOption)
     {
     case 1: 
@@ -22,6 +23,8 @@ void menu() {
         h.enterHands();
         menu();
     }
+    case 3:
+        g.playGame();
     case 0:
         break;
     default:

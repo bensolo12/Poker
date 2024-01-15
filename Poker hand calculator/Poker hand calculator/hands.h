@@ -15,7 +15,10 @@ public:
 	std::string compareHands(std::vector<std::string> handStrings);
 	void enterHands();
 	bool validateString(std::string s);
+	bool checkDuplicateCards(std::string firstHand, std::string secondHand);
 private:
+	std::string firstHandString;
+	std::string secondHandString;
 	std::string currentHand;
 	std::map<std::string, int> HandOrder;
 	int handValue;

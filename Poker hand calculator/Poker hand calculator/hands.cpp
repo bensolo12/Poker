@@ -85,33 +85,40 @@ void hands::enterHands()
 	bool valid2 = false;
 	std::vector<std::string> handStrings;
 
-	std::string firstHandString;
 	while (valid1 == false)
 	{
 		std::cout << "Enter your first hand in the form [Suit][Value] X5 e.g. HA CQ S6 D6 H6" << std::endl;
-		//std::cin.ignore();
+		std::cin.ignore();
 		std::getline(std::cin, firstHandString);
 		firstHandString += " ";
 		valid1 = validateString(firstHandString);		
 	}	
 	handStrings.push_back(firstHandString);	
 
-	std::string secondHandString;
 	while (valid2 == false)
 	{
-		
 		std::cout << "Enter your second hand in the form [Suit][Value] X5 e.g. HA CQ S6 D6 H6" << std::endl;
 		std::getline(std::cin, secondHandString);
 		secondHandString += " ";
 		valid2 = validateString(secondHandString);
 	}
 	handStrings.push_back(secondHandString);
-	std::string winner = compareHands(handStrings);
-	std::cout << winner << std::endl;
+	if (checkDuplicateCards(firstHandString, secondHandString) == true)
+	{
+		std::string winner = compareHands(handStrings);
+		std::cout << winner << std::endl;
+	}
+	else
+	{
+		std::cout << "Hands contain duplicate values, please re-enter" << std::endl;
+		enterHands();
+	}
+	
 }
 
 bool hands::validateString(std::string s) 
 {
+
 	std::vector<char> suitCheck;
 	std::vector<char> valCheck;
 	//Each substring must contain first char [H, C, S, D] second char [2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K, A]
@@ -133,6 +140,20 @@ bool hands::validateString(std::string s)
 	for (auto a_elt : valCheck) {
 		if (std::find(neededNum.begin(), neededNum.end(), a_elt) == neededNum.end()) {
 			std::cout << "Invalid string, please try again" << std::endl;
+			return false;
+		}
+	}
+	
+	return true;
+}
+
+bool hands::checkDuplicateCards(std::string firstHand, std::string secondHand)
+{
+	std::vector<std::string> firstHandCards = getCards(firstHandString);
+	std::vector<std::string> secondHandCards = getCards(secondHandString);
+
+	for (auto a_elt : firstHandCards) {
+		if (std::find(secondHandCards.begin(), secondHandCards.end(), a_elt) == secondHandCards.end()) {
 			return false;
 		}
 	}

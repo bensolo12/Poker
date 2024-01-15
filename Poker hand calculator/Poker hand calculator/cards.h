@@ -11,6 +11,7 @@ public:
 	std::vector<std::string> convertHand(std::string handString);
 	std::vector<std::string> getCards(std::string handString);
 	std::string getHand(std::string handString);
+	void drawCards();
 	int getHandValue();
 	
 private:

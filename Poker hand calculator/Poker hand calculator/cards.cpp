@@ -195,6 +195,25 @@ std::string cards::getHand(std::string handString)
 	return fullHand;
 }
 
+void cards::drawCards()
+{
+	std::string genCards;
+	for (size_t i = 0; i < 2; i++)
+	{
+		srand(time(0));
+		char letters[] = "hcsd";
+		char suit = letters[rand() % 26];
+		genCards.push_back(suit);
+
+		srand(time(0));		
+		for (int i = 0; i < 10; i++) {
+			char val = (rand() % 10) + 1;
+			genCards.push_back(val);
+		}
+		genCards.push_back(' ');
+	}	
+}
+
 int cards::getHandValue()
 {
 	return handValue;
