@@ -1,5 +1,6 @@
 #include "cards.h"
 #include <map>
+#include <random>
 
 std::vector<std::string> cards::checkValues(std::vector<int> values)
 {
@@ -213,21 +214,20 @@ std::string cards::getHand(std::string handString)
 
 void cards::drawCards()
 {
-	std::string genCards;
-	for (size_t i = 0; i < 2; i++)
+	std::string hand;
+	char suit[] = { 'H','C','S','D' };
+	char val[] = { '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14'};
+	std::random_device random;
+	std::mt19937 generator(random());
+	for (size_t i = 0; i <= 3; i++)
 	{
-		srand(time(0));
-		char letters[] = "hcsd";
-		char suit = letters[rand() % 26];
-		genCards.push_back(suit);
-
-		srand(time(0));		
-		for (int i = 0; i < 10; i++) {
-			char val = (rand() % 10) + 1;
-			genCards.push_back(val);
-		}
-		genCards.push_back(' ');
-	}	
+		std::shuffle(std::begin(suit), std::end(suit), generator);
+		std::shuffle(std::begin(val), std::end(val), generator);
+		hand.push_back(suit[0]);
+		hand.push_back(val[0]);
+		hand.push_back(' ');
+	}
+	
 }
 
 int cards::getHandValue()

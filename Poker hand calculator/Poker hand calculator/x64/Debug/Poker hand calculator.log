@@ -1,2 +1,18 @@
-﻿  hands.cpp
-  Poker hand calculator.vcxproj -> C:\Users\bs153215\OneDrive - Renishaw plc\Documents\Poker hand calculator\x64\Debug\Poker hand calculator.exe
+﻿  cards.cpp
+C:\Users\bs153215\source\repos\Poker\Poker hand calculator\Poker hand calculator\cards.cpp(21,21): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+C:\Users\bs153215\source\repos\Poker\Poker hand calculator\Poker hand calculator\cards.cpp(219,57): warning C4838: conversion from 'int' to 'char' requires a narrowing conversion
+C:\Users\bs153215\source\repos\Poker\Poker hand calculator\Poker hand calculator\cards.cpp(219,57): warning C4305: 'initializing': truncation from 'int' to 'char'
+C:\Users\bs153215\source\repos\Poker\Poker hand calculator\Poker hand calculator\cards.cpp(219,57): warning C4309: 'initializing': truncation of constant value
+C:\Users\bs153215\source\repos\Poker\Poker hand calculator\Poker hand calculator\cards.cpp(219,63): warning C4838: conversion from 'int' to 'char' requires a narrowing conversion
+C:\Users\bs153215\source\repos\Poker\Poker hand calculator\Poker hand calculator\cards.cpp(219,63): warning C4305: 'initializing': truncation from 'int' to 'char'
+C:\Users\bs153215\source\repos\Poker\Poker hand calculator\Poker hand calculator\cards.cpp(219,63): warning C4309: 'initializing': truncation of constant value
+C:\Users\bs153215\source\repos\Poker\Poker hand calculator\Poker hand calculator\cards.cpp(219,69): warning C4838: conversion from 'int' to 'char' requires a narrowing conversion
+C:\Users\bs153215\source\repos\Poker\Poker hand calculator\Poker hand calculator\cards.cpp(219,69): warning C4305: 'initializing': truncation from 'int' to 'char'
+C:\Users\bs153215\source\repos\Poker\Poker hand calculator\Poker hand calculator\cards.cpp(219,69): warning C4309: 'initializing': truncation of constant value
+C:\Users\bs153215\source\repos\Poker\Poker hand calculator\Poker hand calculator\cards.cpp(219,75): warning C4838: conversion from 'int' to 'char' requires a narrowing conversion
+C:\Users\bs153215\source\repos\Poker\Poker hand calculator\Poker hand calculator\cards.cpp(219,75): warning C4305: 'initializing': truncation from 'int' to 'char'
+C:\Users\bs153215\source\repos\Poker\Poker hand calculator\Poker hand calculator\cards.cpp(219,75): warning C4309: 'initializing': truncation of constant value
+C:\Users\bs153215\source\repos\Poker\Poker hand calculator\Poker hand calculator\cards.cpp(219,81): warning C4838: conversion from 'int' to 'char' requires a narrowing conversion
+C:\Users\bs153215\source\repos\Poker\Poker hand calculator\Poker hand calculator\cards.cpp(219,81): warning C4305: 'initializing': truncation from 'int' to 'char'
+C:\Users\bs153215\source\repos\Poker\Poker hand calculator\Poker hand calculator\cards.cpp(219,81): warning C4309: 'initializing': truncation of constant value
+  Poker hand calculator.vcxproj -> C:\Users\bs153215\source\repos\Poker\Poker hand calculator\x64\Debug\Poker hand calculator.exe
