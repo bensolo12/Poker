@@ -103,7 +103,7 @@ void hands::enterHands()
 		valid2 = validateString(secondHandString);
 	}
 	handStrings.push_back(secondHandString);
-	if (checkDuplicateCards(firstHandString, secondHandString) == true)
+	if (checkDuplicateCards(firstHandString, secondHandString) == false)
 	{
 		std::string winner = compareHands(handStrings);
 		std::cout << winner << std::endl;

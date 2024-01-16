@@ -14,38 +14,55 @@ std::vector<std::string> cards::checkValues(std::vector<int> values)
 	}		
 	std::map<int, int> duplicate;
 
-	auto beg = begin(values) + 1;
-	for (; beg != end(values); ++beg) {
-		if (*beg == *(beg - 1)) {
-			duplicate[*beg]++;
-		}
-	}
-	for (const auto& i : duplicate) {		
-		if (i.second + 1 == 2)
+	int occur;
+	for (const int target: {2, 3, 4, 5, 6, 7, 8, 9, 10 ,11 ,12 ,13,14})
+	{
+		occur = std::count(begin(values), end(values), target);
+		if (occur == 2)
 		{
-			handType.push_back("OnePair");
+			if (handType.empty() == false)
+			{
+				if (handType.back() == "OnePair")
+				{
+					handType.clear();
+					handType.push_back("TwoPair");
+				}
+
+				if (handType.back() == "ThreeOfAKind")
+				{
+					handType.clear();
+					handType.push_back("FullHouse");
+				}
+			}
+			
+			else
+			{
+				handType.push_back("OnePair");
+			}			
 		}
-		else if (i.second + 1 == 3)
+		else if(occur == 3)
 		{
-			handType.push_back("ThreeOfAKind");
+			if (handType.empty() == false)
+			{
+				if (handType.back() == "OnePair")
+				{
+					handType.clear();
+					handType.push_back("FullHouse");
+				}
+			}			
+			else
+			{
+				handType.push_back("ThreeOfAKind");
+			}			
 		}
-		else if (i.second + 1 == 4)
+		else if (occur == 4)
 		{
 			handType.push_back("FourOfAKind");
-		}		
+		}
 	}
-	if (handType.size() > 1)
-	{		
-		if (handType[0] == "OnePair" && handType[1] == "ThreeOfAKind" || handType[1] == "OnePair" && handType[0] == "ThreeOfAKind")
-		{
-			handType.clear();
-			handType.push_back("FullHouse");
-		}
-		if (handType[0] == "OnePair" && handType[1] == "OnePair")
-		{
-			handType.clear();
-			handType.push_back("TwoPair");
-		}
+	if (handType.empty())
+	{
+		handType.push_back("");
 	}
 	
 	return handType;
@@ -53,26 +70,24 @@ std::vector<std::string> cards::checkValues(std::vector<int> values)
 
 std::vector<std::string> cards::checkSuits(std::vector<std::string> values)
 {
-	if (values[0] == "Diamonds" && values[1] == "Diamonds"&& values[2] == "Diamonds"&& values[3] == "Diamonds"&& values[4] == "Diamonds")
+	if (std::all_of(begin(values), end(values), [](auto val) {return val == "Diamonds"; }))
 	{
 		handType.push_back("Flush");
 	}
-	else if (values[0] == "Spades" && values[1] == "Spades" && values[2] == "Spades" && values[3] == "Spades" && values[4] == "Spades")
+	else if (std::all_of(begin(values), end(values), [](auto val) {return val == "Hearts"; }))
 	{
 		handType.push_back("Flush");
 	}
-	else if (values[0] == "Clubs" && values[1] == "Clubs" && values[2] == "Clubs" && values[3] == "Clubs" && values[4] == "Clubs")
+	else if (std::all_of(begin(values), end(values), [](auto val) {return val == "Spades"; }))
 	{
 		handType.push_back("Flush");
 	}
-	else if (values[0] == "Hearts" && values[1] == "Hearts" && values[2] == "Hearts" && values[3] == "Hearts" && values[4] == "Hearts")
+	else if (std::all_of(begin(values), end(values), [](auto val) {return val == "Clubs"; }))
 	{
 		handType.push_back("Flush");
-	}	
+	}
 	return handType;
 }
-
-
 
 std::vector<std::string> cards::convertHand(std::string handString)
 {
@@ -81,6 +96,7 @@ std::vector<std::string> cards::convertHand(std::string handString)
 	std::string currentCard;
 	currentHand = getCards(handString);
 	handValue = 0;
+
 	for (size_t i = 0; i < currentHand.size(); i++)
 	{
 		currentValue = 0;
@@ -140,7 +156,7 @@ std::vector<std::string> cards::convertHand(std::string handString)
 	std::vector<std::string> val = checkValues(allValues);
 	std::vector<std::string> suiteVal = checkSuits(allSuits);
 	fullHand.clear();
-	if (val.size() == 0 && suiteVal.size() == 0)
+	if (val.empty() && suiteVal.empty() || val.back() == "")
 	{
 		fullHand.push_back("HighCard");
 	}
@@ -159,7 +175,7 @@ std::vector<std::string> cards::convertHand(std::string handString)
 	{
 		fullHand = checkValues(allValues);
 	}
-	else if (val == suiteVal)
+	else if (val == suiteVal && fullHand.back() != "HighCard")
 	{
 		fullHand = val;
 	}
