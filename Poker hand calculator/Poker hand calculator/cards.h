@@ -3,6 +3,8 @@
 #include <string>
 #include <iostream>
 #include <algorithm>
+#include <numeric>
+
 class cards
 {
 public:

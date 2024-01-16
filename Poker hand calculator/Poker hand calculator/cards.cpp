@@ -205,10 +205,7 @@ std::string cards::getHand(std::string handString)
 {
 	std::string fullHand;
 	std::vector<std::string> temp = convertHand(handString);
-	for (size_t i = 0; i < temp.size(); i++)
-	{
-		fullHand += temp[i];
-	}
+	fullHand = std::accumulate(begin(temp),end(temp), std::string{});
 	return fullHand;
 }
 
