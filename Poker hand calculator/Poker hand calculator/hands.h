@@ -1,10 +1,6 @@
 #pragma once
-#include <vector>
-#include <string>
-#include <iostream>
 #include "cards.h"
-#include <map>
-#include <unordered_map>
+#include "includes.h"
 
 class hands: public cards
 {

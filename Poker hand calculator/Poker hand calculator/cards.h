@@ -1,9 +1,5 @@
 #pragma once
-#include <vector>
-#include <string>
-#include <iostream>
-#include <algorithm>
-#include <numeric>
+#include "includes.h"
 
 class cards
 {

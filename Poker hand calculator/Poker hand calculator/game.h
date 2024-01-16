@@ -1,6 +1,7 @@
 #pragma once
-#include "hands.h"
-class game: public hands
+#include "includes.h"
+#include "Dealer.h"
+class game
 {
 public:
 	void playGame();

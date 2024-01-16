@@ -128,14 +128,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="cards.cpp" />
+    <ClCompile Include="Dealer.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="hands.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Poker hand calculator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cards.h" />
+    <ClInclude Include="Dealer.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="hands.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="includes.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
