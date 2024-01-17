@@ -36,3 +36,15 @@ Player::Player(std::string playerName, int playerNum)
 Player::Player()
 {
 }
+
+bool Player::playHand()
+{
+	std::cout << "Would you like to play, or fold? " << std::endl;
+	std::string c;
+	std::getline(std::cin, c);
+	if (c == "play")
+	{
+		return true;
+	}
+	return false;
+}

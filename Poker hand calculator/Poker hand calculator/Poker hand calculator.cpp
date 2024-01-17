@@ -30,6 +30,6 @@ void menu() {
 }
 int main()
 {
-    std::cout << "Hello, welcome to the poker hand calculator, what would you like to do?" << std::endl;
+    std::cout << "Hello, welcome to poker, what would you like to do?" << std::endl;
     menu();
 }

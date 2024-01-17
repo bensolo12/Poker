@@ -7,6 +7,7 @@ public:
 	std::string dealCards();
 	Player(std::string playerName, int playerNum);
 	Player();
+	bool playHand();
 private:
 	std::string playerName;
 	int playerNum;
